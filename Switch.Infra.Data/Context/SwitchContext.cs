@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Switch.Domain.Entities;
+using Switch.Infra.Data.Config;
 
 namespace Switch.Infra.Data.Context
 {
@@ -14,13 +15,7 @@ namespace Switch.Infra.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Usuario>(entity =>
-            {
-                entity.HasKey(u => u.Id);
-                entity.Property(u => u.Nome);
-
-            });
-
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }
