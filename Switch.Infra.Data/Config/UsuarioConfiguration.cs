@@ -9,13 +9,29 @@ namespace Switch.Infra.Data.Config
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.HasKey((u) => u.Id);
-            builder.Property((u) => u.Nome).HasMaxLength(400).IsRequired();
-            builder.Property((u) => u.Senha).HasMaxLength(12).IsRequired();
-            builder.Property((u) => u.Sexo).IsRequired();
-            builder.Property((u) => u.SobreNome).HasMaxLength(100).IsRequired();
-            builder.Property((u) => u.UrlFoto).HasMaxLength(500).IsRequired();
-            builder.Property((u) => u.DataNascimento).IsRequired();
+            builder.ToTable("usuarios");
+
+            builder.Property(e => e.Id).HasColumnType("int(11)");
+
+            builder.Property(e => e.DataNascimento).HasColumnType("datetime");
+
+            builder.Property(e => e.Nome)
+                .IsRequired()
+                .HasColumnType("varchar(400)");
+
+            builder.Property(e => e.Senha)
+                .IsRequired()
+                .HasColumnType("varchar(12)");
+
+            builder.Property(e => e.Sexo).HasColumnType("int(11)");
+
+            builder.Property(e => e.SobreNome)
+                .IsRequired()
+                .HasColumnType("varchar(100)");
+
+            builder.Property(e => e.UrlFoto)
+                .IsRequired()
+                .HasColumnType("varchar(500)");
         }
     }
 }
