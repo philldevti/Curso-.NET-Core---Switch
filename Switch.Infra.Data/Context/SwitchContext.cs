@@ -18,8 +18,6 @@ namespace Switch.Infra.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
-            modelBuilder.ApplyConfiguration(new PostagenConfiguration());
-            modelBuilder.ApplyConfiguration(new StatusrelacionamentoConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }
