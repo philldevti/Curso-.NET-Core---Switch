@@ -23,7 +23,7 @@ namespace Switch.API
         {
             var conn = Configuration.GetConnectionString("SwitchDB");
             services.AddDbContext<SwitchContext>(option => option.UseLazyLoadingProxies()
-                                                                 .UseMySQL(conn, m => m.MigrationsAssembly("Switch.Infra.Data")));
+                                                                 .UseMySql(conn, m => m.MigrationsAssembly("Switch.Infra.Data")));
             services.AddMvcCore();
         }
 

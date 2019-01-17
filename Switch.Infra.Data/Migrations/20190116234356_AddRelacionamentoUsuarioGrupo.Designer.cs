@@ -2,20 +2,21 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Switch.Infra.Data.Context;
 
 namespace Switch.Infra.Data.Migrations
 {
     [DbContext(typeof(SwitchContext))]
-    partial class SwitchContextModelSnapshot : ModelSnapshot
+    [Migration("20190116234356_AddRelacionamentoUsuarioGrupo")]
+    partial class AddRelacionamentoUsuarioGrupo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
 
             modelBuilder.Entity("Switch.Domain.Entities.Grupo", b =>
                 {
@@ -36,7 +37,7 @@ namespace Switch.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Grupos");
+                    b.ToTable("Grupo");
                 });
 
             modelBuilder.Entity("Switch.Domain.Entities.Identificacao", b =>
@@ -65,7 +66,7 @@ namespace Switch.Infra.Data.Migrations
 
                     b.Property<DateTime>("DataPublicacao");
 
-                    b.Property<int>("GrupoId");
+                    b.Property<int?>("GrupoId");
 
                     b.Property<string>("Texto")
                         .IsRequired()
@@ -141,7 +142,7 @@ namespace Switch.Infra.Data.Migrations
 
                     b.HasIndex("GrupoId");
 
-                    b.ToTable("UsuarioGrupos");
+                    b.ToTable("UsuarioGrupo");
                 });
 
             modelBuilder.Entity("Switch.Domain.Entities.Identificacao", b =>
@@ -156,8 +157,7 @@ namespace Switch.Infra.Data.Migrations
                 {
                     b.HasOne("Switch.Domain.Entities.Grupo", "Grupo")
                         .WithMany("Postagens")
-                        .HasForeignKey("GrupoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("GrupoId");
 
                     b.HasOne("Switch.Domain.Entities.Usuario", "Usuario")
                         .WithMany("Postagens")

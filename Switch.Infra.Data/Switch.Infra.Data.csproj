@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\20190115233635_AdicionandoIdentificacao.cs" />
+    <Compile Remove="Migrations\20190116235033_AddDbSets.cs" />
+    <Compile Remove="Migrations\20190117003353_AddDbSets.cs" />
   </ItemGroup>
 
   <ItemGroup>
