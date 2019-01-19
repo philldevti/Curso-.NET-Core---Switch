@@ -19,7 +19,7 @@ namespace Switch.Infra.Data.Config
             builder.Property(e => e.SobreNome).IsRequired().HasColumnType("varchar(100)");
             builder.Property(e => e.UrlFoto).IsRequired().HasColumnType("varchar(500)");
             builder.HasOne(e => e.Identificacao).WithOne(i => i.Usuario).HasForeignKey<Identificacao>(o => o.UsuarioId);
-
+            builder.HasMany(u => u.Comentarios).WithOne(c => c.Usuario);
         }
     }
 }

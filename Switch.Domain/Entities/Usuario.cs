@@ -17,5 +17,18 @@ namespace Switch.Domain.Entities
         public virtual Identificacao Identificacao { get; set; }
         public virtual ICollection<Postagem> Postagens { get; set; }
         public virtual ICollection<UsuarioGrupo> UsuarioGrupos { get; set; }
+        public virtual ICollection<LocalTrabalho> LocalTrabalho { get; set; }
+        public virtual ICollection<InstituicaoEnsino> InstituicaoEnsino { get; set; }
+        public virtual ICollection<Amigo> Amigos { get; set; }
+        public virtual ICollection<Comentario> Comentarios { get; set; }
+
+        public Usuario()
+        {
+            Postagens = new List<Postagem>();
+            UsuarioGrupos = new List<UsuarioGrupo>();
+            LocalTrabalho = new List<LocalTrabalho>();
+            InstituicaoEnsino = new List<InstituicaoEnsino>();
+            Amigos = new List<Amigo>();
+        }
     }
 }
