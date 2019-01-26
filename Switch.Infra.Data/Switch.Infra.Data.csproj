@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190115233635_AdicionandoIdentificacao.cs" />
-    <Compile Remove="Migrations\20190116235033_AddDbSets.cs" />
-    <Compile Remove="Migrations\20190117003353_AddDbSets.cs" />
-    <Compile Remove="Migrations\20190119185636_AdicionandoNovasClasses.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.1">

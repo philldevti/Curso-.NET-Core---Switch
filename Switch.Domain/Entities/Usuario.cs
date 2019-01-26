@@ -13,6 +13,7 @@ namespace Switch.Domain.Entities
         public string Senha { get; set; }
         public DateTime DataNascimento { get; set; }
         public SexoEnum Sexo { get; set; }
+        public string Email { get; set; }
         public string UrlFoto { get; set; }
         public virtual Identificacao Identificacao { get; set; }
         public virtual StatusRelacionamento StatusRelacionamento { get; set; }

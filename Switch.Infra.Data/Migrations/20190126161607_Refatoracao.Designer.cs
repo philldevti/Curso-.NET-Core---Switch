@@ -9,8 +9,8 @@ using Switch.Infra.Data.Context;
 namespace Switch.Infra.Data.Migrations
 {
     [DbContext(typeof(SwitchContext))]
-    [Migration("20190119190013_AdicionandoNovasClasses")]
-    partial class AdicionandoNovasClasses
+    [Migration("20190126161607_Refatoracao")]
+    partial class Refatoracao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -233,34 +233,35 @@ namespace Switch.Infra.Data.Migrations
             modelBuilder.Entity("Switch.Domain.Entities.Usuario", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int(11)");
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime>("DataNascimento");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(400);
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("varchar(400)");
+                        .HasMaxLength(400);
 
                     b.Property<int?>("ProcurandoPorId");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("varchar(12)");
+                        .HasMaxLength(400);
 
-                    b.Property<int>("Sexo")
-                        .HasColumnType("int(11)");
+                    b.Property<int>("Sexo");
 
                     b.Property<string>("SobreNome")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasMaxLength(400);
 
                     b.Property<int?>("StatusRelacionamentoId");
 
                     b.Property<string>("UrlFoto")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasMaxLength(400);
 
                     b.HasKey("Id");
 
