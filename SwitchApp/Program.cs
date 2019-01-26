@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Logging;
 using Switch.Domain.Entities;
 using Switch.Domain.Enums;
+using Switch.Infra.CrossCutting.Logging;
 using Switch.Infra.Data.Context;
 using System;
 
@@ -12,7 +15,7 @@ namespace SwitchApp
         {
             var usuario = new Usuario()
             {
-                Nome = "Usuario1",
+                Nome = "Usuario3",
                 SobreNome = "SobreUsuario",
                 Senha = "1234",
                 Email = "usuario@teste.com",
@@ -30,6 +33,7 @@ namespace SwitchApp
             {
                 using (var db = new SwitchContext(optionsBuilder.Options))
                 {
+                    db.GetService<ILoggerFactory>().AddProvider(new Logger());
                     db.Usuarios.Add(usuario);
                     db.SaveChanges();
                 }
